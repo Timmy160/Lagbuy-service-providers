@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import ImageTemp from "../assets/nikhill.jpeg";
+import ImageTemp from "../assets/josaces.png";
 
 function AcademyHome() {
   const navigate = useNavigate();
@@ -146,14 +146,14 @@ function AcademyHome() {
                   </div>
                   <div>
                     <div className="text-xs text-[#1A362B]/40 uppercase tracking-wide font-semibold">Instructor</div>
-                    <div className="text-base font-semibold text-[#1A362B]">Joses Frank-Ndubisi</div>
+                    <div className="text-base font-semibold text-[#1A362B]">Joses Frank-Ndubishi</div>
                   </div>
                 </div>
               </div>
 
               {/* CTA */}
               <button
-                onClick={() => navigate("/course-auth")}
+                onClick={() => navigate("/course-details")}
                 className="group/btn w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#1A362B] text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-[0_4px_20px_rgba(26,54,43,0.2)] hover:shadow-[0_8px_30px_rgba(26,54,43,0.3)] hover:bg-[#152b22] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 Enroll Now
