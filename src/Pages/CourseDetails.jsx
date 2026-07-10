@@ -34,7 +34,7 @@ function CourseDetails() {
     startDate: "Rolling Enrollment",
     certificate: null,
     image: ImageTemp,
-    whatsappLink: "https://chat.whatsapp.com/BGuVUkd9LXMLI3MW7ais9V",
+    whatsappLink: "  https://chat.whatsapp.com/C4qJz7jt62CK4dnH8KQBfC?s=sw&p=a&ilr=0",
   };
 
   const whatYoullLearn = [
