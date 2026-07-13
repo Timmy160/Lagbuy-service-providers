@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import ImageTemp from "../assets/joslearn.jpeg";
+import TutorImage from "../assets/joslearn.jpeg";
+import TutorImg2 from "../assets/josp2.jpeg";
+
 
 function CourseDetails() {
   const navigate = useNavigate();
@@ -44,7 +46,7 @@ function CourseDetails() {
       category: "Content Creation & Digital Entrepreneurship",
       language: "English",
       startDate: "Rolling Enrollment",
-      image: ImageTemp,
+      image: TutorImage,
       whatYoullLearn: [
         "Build a Strategy that actually works",
         "Film videos that look clean, professional & cohesive",
@@ -76,7 +78,7 @@ function CourseDetails() {
       category: "Content Strategy & Optimization",
       language: "English",
       startDate: "Within 48 hours of purchase",
-      image: ImageTemp,
+      image: TutorImg2,
       whatYoullLearn: [
         "In-depth review of your social media page",
         "Bio and profile optimization",
