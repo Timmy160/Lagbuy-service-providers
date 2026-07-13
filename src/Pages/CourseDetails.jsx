@@ -36,7 +36,7 @@ function CourseDetails() {
       description:
         "Turn your creativity into a paycheck. Learn how to build a personal brand, grow an engaged audience, and monetize your content across platforms, from sponsorships and affiliate deals to selling your own products. This isn't just about posting. It's about building a business around what you love to create.",
       tutor: "Joses Frank-Ndubishi",
-      duration: "1 Day",
+      duration: "2 Days",
       price: 15000,
       priceDisplay: "₦15,000",
       earlyBirdPrice: 10000,
@@ -68,7 +68,7 @@ function CourseDetails() {
       description:
         "A personalized review of your content to help you identify what's holding your growth back. Get expert feedback on your social media presence and actionable steps to improve.",
       tutor: "Joses Frank-Ndubishi",
-      duration: "3–5 Business Days",
+      duration: "3 Business Days",
       price: 5000,
       priceDisplay: "₦5,000",
       earlyBirdPrice: null,
@@ -131,7 +131,7 @@ function CourseDetails() {
 
     // Initialize Paystack payment
     const handler = window.PaystackPop.setup({
-      key: "pk_test_e674e76c7eb6fe1ed79b4f52ff238932c43c6aa3", // ✅ YOUR TEST KEY
+      key: "pk_live_156f7ddf5d8516b0708f2247ec930635907fa257", // ✅ YOUR TEST KEY
       email: user?.email || "guest@lagbuy.com",
       amount: breakdown.totalInKobo,
       currency: "NGN",
