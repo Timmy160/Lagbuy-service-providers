@@ -36,7 +36,7 @@ function CourseDetails() {
       description:
         "Turn your creativity into a paycheck. Learn how to build a personal brand, grow an engaged audience, and monetize your content across platforms, from sponsorships and affiliate deals to selling your own products. This isn't just about posting. It's about building a business around what you love to create.",
       tutor: "Joses Frank-Ndubishi",
-      duration: "2 Days",
+      duration: "1 Day",
       price: 15000,
       priceDisplay: "₦15,000",
       earlyBirdPrice: 10000,
