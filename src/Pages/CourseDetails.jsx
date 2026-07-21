@@ -306,7 +306,7 @@ function CourseDetails() {
     localStorage.setItem("lastPaymentRef", paymentRef);
 
     const handler = window.PaystackPop.setup({
-      key: "pk_test_e674e76c7eb6fe1ed79b4f52ff238932c43c6aa3",
+      key: "pk_live_156f7ddf5d8516b0708f2247ec930635907fa257",
       email: user?.email || "guest@lagbuy.com",
       amount: breakdown.totalInKobo,
       currency: "NGN",
