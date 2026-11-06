@@ -1,4 +1,4 @@
- import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import TutorImage from "../assets/joslearn.jpeg";
@@ -42,11 +42,11 @@ function CourseDetails() {
       tutor: "Joses Frank-Ndubishi",
       tutorEmail: "joses@lagbuy.com",
       duration: "1 Day",
-      price: 15000,
-      priceDisplay: "₦15,000",
-      earlyBirdPrice: 10000,
-      earlyBirdDisplay: "₦10,000",
-      hasEarlyBird: true,
+      price: 251000,
+      priceDisplay: "₦251,000",
+      earlyBirdPrice: null,
+      earlyBirdDisplay: null,
+      hasEarlyBird: false,
       skillLevel: "Beginner to Intermediate",
       category: "Content Creation & Digital Entrepreneurship",
       language: "English",
@@ -276,10 +276,10 @@ function CourseDetails() {
   // ─────────────────────────────────────────
   // PAYMENT LOGIC
   // ─────────────────────────────────────────
+  // Flat ₦678 charge on top of the course price (no commission, no random fee)
   function calculatePaystackAmount(basePrice) {
-    const commissionRate = 0.05;
-    const commission = Math.round(basePrice * commissionRate);
-    const serviceFee = Math.floor(Math.random() * (500 - 300 + 1)) + 300;
+    const commission = 0;
+    const serviceFee = 678;
     const total = basePrice + commission + serviceFee;
     return {
       basePrice,
@@ -316,7 +316,6 @@ function CourseDetails() {
           { display_name: "Course", variable_name: "course", value: course.title },
           { display_name: "Student Name", variable_name: "student_name", value: user?.displayName || user?.email || "Guest" },
           { display_name: "Base Price", variable_name: "base_price", value: `₦${breakdown.basePrice.toLocaleString()}` },
-          { display_name: "Commission (5%)", variable_name: "commission", value: `₦${breakdown.commission.toLocaleString()}` },
           { display_name: "Service Fee", variable_name: "service_fee", value: `₦${breakdown.serviceFee.toLocaleString()}` },
         ],
       },
@@ -697,7 +696,7 @@ function CourseDetails() {
           <div className="inline-flex items-center gap-2 bg-[#94BD0A]/10 border border-[#94BD0A]/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-6">
             <span className="w-2 h-2 rounded-full bg-[#94BD0A] animate-pulse" />
             <span className="text-xs font-bold tracking-widest uppercase text-[#1A362B]/70">
-              {course.hasEarlyBird ? "Premium Course" : "Service"}
+              {activeCourse === "course1" ? "Premium Course" : "Service"}
             </span>
           </div>
 
@@ -886,7 +885,7 @@ function CourseDetails() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  Get Audit — {course.priceDisplay}
+                  {activeCourse === "course2" ? "Get Audit" : "Enroll Now"} — {course.priceDisplay}
                   <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
