@@ -1,8 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import TutorImage from "../assets/joslearn.jpeg";
 import TutorImg2 from "../assets/josp2.jpeg";
+
+// ─────────────────────────────────────────
+// FEE SETTINGS (change these in one place)
+// ─────────────────────────────────────────
+const COMMISSION_RATE = 0.05; // 5% of the course price
+const SERVICE_FEE = 400;      // flat fee in ₦ (keep between 300 and 500)
 
 function CourseDetails() {
   const navigate = useNavigate();
@@ -42,8 +48,8 @@ function CourseDetails() {
       tutor: "Joses Frank-Ndubishi",
       tutorEmail: "joses@lagbuy.com",
       duration: "1 Day",
-      price: 251000,
-      priceDisplay: "₦251,000",
+      price: 10000,
+      priceDisplay: "₦10,000",
       earlyBirdPrice: null,
       earlyBirdDisplay: null,
       hasEarlyBird: false,
@@ -276,10 +282,11 @@ function CourseDetails() {
   // ─────────────────────────────────────────
   // PAYMENT LOGIC
   // ─────────────────────────────────────────
-  // Flat ₦678 charge on top of the course price (no commission, no random fee)
+  // Commission = 5% of the course price, plus a flat service fee (₦300–₦500).
+  // Both are added on top of the course price.
   function calculatePaystackAmount(basePrice) {
-    const commission = 0;
-    const serviceFee = 678;
+    const commission = Math.round(basePrice * COMMISSION_RATE);
+    const serviceFee = SERVICE_FEE;
     const total = basePrice + commission + serviceFee;
     return {
       basePrice,
@@ -316,6 +323,7 @@ function CourseDetails() {
           { display_name: "Course", variable_name: "course", value: course.title },
           { display_name: "Student Name", variable_name: "student_name", value: user?.displayName || user?.email || "Guest" },
           { display_name: "Base Price", variable_name: "base_price", value: `₦${breakdown.basePrice.toLocaleString()}` },
+          { display_name: "Commission", variable_name: "commission", value: `₦${breakdown.commission.toLocaleString()}` },
           { display_name: "Service Fee", variable_name: "service_fee", value: `₦${breakdown.serviceFee.toLocaleString()}` },
         ],
       },
